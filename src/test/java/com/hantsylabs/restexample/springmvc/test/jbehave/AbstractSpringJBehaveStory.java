@@ -12,20 +12,20 @@ import org.jbehave.core.io.*;
 import org.jbehave.core.junit.JUnitStory;
 import org.jbehave.core.reporters.FilePrintStreamFactory.ResolveToPackagedName;
 import org.jbehave.core.reporters.StoryReporterBuilder;
-import org.jbehave.core.steps.ParameterControls;
-
-import java.util.Arrays;
-import javax.inject.Inject;
-import lombok.extern.slf4j.Slf4j;
-
-import static org.jbehave.core.reporters.Format.*;
 import org.jbehave.core.steps.InjectableStepsFactory;
 import org.jbehave.core.steps.InstanceStepsFactory;
+import org.jbehave.core.steps.ParameterControls;
+import org.slf4j.Logger;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@Slf4j
+import javax.inject.Inject;
+import java.util.Arrays;
+
+import static org.jbehave.core.reporters.Format.*;
+
 public abstract class AbstractSpringJBehaveStory extends JUnitStory {
 
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(AbstractSpringJBehaveStory.class);
     @Inject
     PostRepository posts;
 

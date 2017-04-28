@@ -4,25 +4,25 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.jackson.JsonComponent;
+
 import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.jackson.JsonComponent;
 
 /**
  *
  * @author hantsy
  */
 @JsonComponent
-@Slf4j
+// @Slf4j
 public class LocalDateTimeJsonComponent {
+
+    private static final Logger log = LoggerFactory.getLogger(LocalDateTimeJsonComponent.class);
 
     public static class LocalDateTimeSerializer extends JsonSerializer<LocalDateTime> {
 

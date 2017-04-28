@@ -6,31 +6,31 @@ import com.hantsylabs.restexample.springmvc.repository.CommentRepository;
 import com.hantsylabs.restexample.springmvc.repository.PostRepository;
 import com.hantsylabs.restexample.springmvc.repository.PostSpecifications;
 import com.hantsylabs.restexample.springmvc.service.BlogService;
-import java.util.Arrays;
-import javax.inject.Inject;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
-import static org.mockito.Mockito.when;
-import org.mockito.invocation.InvocationOnMock;
+import org.slf4j.Logger;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.inject.Inject;
+import java.util.Arrays;
+
 import static org.junit.Assert.assertTrue;
-import org.junit.Ignore;
 import static org.mockito.BDDMockito.given;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Slf4j
 @Ignore //upgrade to 1.4.1, failed.
 public class MockBeanBlogServiceTest {
 
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(MockBeanBlogServiceTest.class);
     @MockBean
     private PostRepository postRepository;
 

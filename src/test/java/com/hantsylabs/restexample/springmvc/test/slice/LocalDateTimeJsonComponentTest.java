@@ -1,25 +1,23 @@
 package com.hantsylabs.restexample.springmvc.test.slice;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.springframework.boot.test.autoconfigure.json.JsonTest;
+import org.springframework.boot.test.json.JacksonTester;
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.inject.Inject;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.Map;
-import javax.inject.Inject;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import lombok.extern.slf4j.Slf4j;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.autoconfigure.json.JsonTest;
-import org.springframework.boot.test.json.JacksonTester;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
-import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  *
@@ -27,9 +25,9 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @JsonTest()
-@Slf4j
 public class LocalDateTimeJsonComponentTest {
 
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(LocalDateTimeJsonComponentTest.class);
     @Inject
     JacksonTester<TimeObj> tester;
 
@@ -68,13 +66,52 @@ public class LocalDateTimeJsonComponentTest {
         log.debug("parsed Date time @" + parsedDateTimeMap);
     }
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @ToString
     static class TimeObj {
 
         private LocalDateTime now;
+
+        @java.beans.ConstructorProperties({"now"})
+        public TimeObj(LocalDateTime now) {
+            this.now = now;
+        }
+
+        public TimeObj() {
+        }
+
+        public LocalDateTime getNow() {
+            return this.now;
+        }
+
+        public void setNow(LocalDateTime now) {
+            this.now = now;
+        }
+
+        public boolean equals(Object o) {
+            if (o == this) return true;
+            if (!(o instanceof TimeObj)) return false;
+            final TimeObj other = (TimeObj) o;
+            if (!other.canEqual((Object) this)) return false;
+            final Object this$now = this.getNow();
+            final Object other$now = other.getNow();
+            if (this$now == null ? other$now != null : !this$now.equals(other$now)) return false;
+            return true;
+        }
+
+        public int hashCode() {
+            final int PRIME = 59;
+            int result = 1;
+            final Object $now = this.getNow();
+            result = result * PRIME + ($now == null ? 43 : $now.hashCode());
+            return result;
+        }
+
+        protected boolean canEqual(Object other) {
+            return other instanceof TimeObj;
+        }
+
+        public String toString() {
+            return "com.hantsylabs.restexample.springmvc.test.slice.LocalDateTimeJsonComponentTest.TimeObj(now=" + this.getNow() + ")";
+        }
     }
 
 }

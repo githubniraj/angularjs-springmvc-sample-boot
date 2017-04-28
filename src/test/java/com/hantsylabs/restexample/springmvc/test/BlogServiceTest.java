@@ -8,26 +8,26 @@ import com.hantsylabs.restexample.springmvc.model.PostDetails;
 import com.hantsylabs.restexample.springmvc.model.PostForm;
 import com.hantsylabs.restexample.springmvc.repository.PostRepository;
 import com.hantsylabs.restexample.springmvc.service.BlogService;
-import java.util.Random;
-import javax.inject.Inject;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.inject.Inject;
+import java.util.Random;
+
+import static org.junit.Assert.*;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Slf4j
 public class BlogServiceTest extends IntegrationTestBase {
 
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(BlogServiceTest.class);
     @Inject
     private PostRepository postRepository;
 
