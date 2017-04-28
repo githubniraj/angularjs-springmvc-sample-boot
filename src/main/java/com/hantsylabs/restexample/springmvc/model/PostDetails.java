@@ -1,18 +1,18 @@
 package com.hantsylabs.restexample.springmvc.model;
 
+import lombok.*;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  *
  * @author Hantsy Bai<hantsy@gmail.com>
  *
  */
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

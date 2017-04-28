@@ -31,8 +31,8 @@
         <hibernate-validator.version>5.3.3.Final</hibernate-validator.version>
         <jackson.version>2.8.7</jackson.version>
         <modelmapper.version>0.7.5</modelmapper.version>
-        <lombok.version>1.16.16</lombok.version>
-                      
+        <lombok.version>1.16.12</lombok.version>
+
         <!--test dependencies-->
         <!-- spring-boot-starter-test include mockito, json-path, jsonassert, etc -->
         <rest-assured.version>2.7.0</rest-assured.version>
@@ -311,12 +311,12 @@
             <version>${lombok.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-maven-plugin</artifactId>
-            <version>1.16.16.0</version>
-        </dependency>
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.projectlombok</groupId>-->
+            <!--<artifactId>lombok-maven-plugin</artifactId>-->
+            <!--<version>1.16.16.0</version>-->
+        <!--</dependency>-->
 
 
         <!-- dependency injection jsr 330 -->

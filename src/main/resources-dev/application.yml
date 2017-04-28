@@ -6,6 +6,7 @@ spring:
     profiles:
         active: dev
     devtools.restart.exclude: static/**,public/**
+# datasource replaces the need of bean creation in the applicationContext.xml
     datasource:
         dataSourceClassName: org.h2.jdbcx.JdbcDataSource
         url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
@@ -13,7 +14,7 @@ spring:
         serverName: 
         username: sa
         password: 
-
+# Replaces the nead of bean creation in the persistence.xml
     jpa:
         database-platform: org.hibernate.dialect.H2Dialect
         database: H2

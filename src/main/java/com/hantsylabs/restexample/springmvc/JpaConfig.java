@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
+//  add the JPA entity scan scope, Java 8 DateTime support is added in Spring Data JPA via JPA 2.1 AttributeConvertor feature.
 @EntityScan(basePackageClasses = {User.class, Jsr310JpaConverters.class})
 @EnableJpaAuditing(auditorAwareRef = "auditor")
 public class JpaConfig {
