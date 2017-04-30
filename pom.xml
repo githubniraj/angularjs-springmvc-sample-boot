@@ -623,6 +623,11 @@
                     <target>${java.version}</target>               
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <!--                    <compilerArgument>-proc:none</compilerArgument>-->
+                    <compilerArgument>-Xlint</compilerArgument>
+                    <annotationProcessors>
+                        <annotationProcessor>lombok.launch.AnnotationProcessorHider$AnnotationProcessor</annotationProcessor>
+                       <!-- <annotationProcessor>org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor</annotationProcessor>-->
+                    </annotationProcessors>
                 </configuration>
                 <executions>
                     <execution>
